@@ -110,15 +110,15 @@ let sliderImgOne = document.createElement('img');
    sliderDotFour.appendChild(sliderSpanFour);  
 
 
-   let slides = document.querySelectorAll('.slider__item');
+let slides = document.querySelectorAll('.slider__item');
+   let slide = document.querySelector('.slider__item');
    let dots = document.querySelectorAll('.slider__dot');
 /*    let setWith = parseInt(getComputedStyle(sliderImg).width, 10); */
 
-
-
+//1. Текст скроллинг, картинка наехала на предыдущию
+//сначала сделать элемент невидимым, потом делать видимым и двигать
 
 const activeSlide = n => {
-  console.log(n);
         for(slide of slides) {
             slide.classList.add('img__active');
         }
@@ -140,8 +140,107 @@ const prepareCurrentSlide = index => {
 prepareCurrentSlide(0);
 
 
-dots.forEach(function (dot, index) {
+/* dots.forEach(function (dot, index) {
    dot.addEventListener('click', function () {
       prepareCurrentSlide(index);
    })
+}) */
+
+
+/* dots.forEach(function (dot) {
+   dot.addEventListener('click', function () {
+  var elem = document.getElementById("animate");   
+  var pos = 0;
+  var id = setInterval(frame, 5);
+  function frame() {
+    if (pos == 350) {
+      clearInterval(id);
+    } else {
+      pos++; 
+      elem.style.transform: translate(42px, 18px);; 
+    }
+  }})
+}) */
+
+/* function moveDown() {
+   let coordY = 0;
+   let id = setInterval(frame, 5);
+   function frame() {
+      if (coordY == 150) {
+         console.log('ckckc');
+         clearInterval(id);
+      } else {
+         coordY++;
+         slider.style.top = coordY + 'px';
+      }
+   }
+} */
+dots.forEach(function (dot, index) {
+   dot.addEventListener('click', function () { 
+      prepareCurrentSlide(index);
+      let animationImg = setInterval(frame, 1);
+      let animationTxt = setInterval(frameTxt, 1);
+      let positionImg = 450;
+      let positionTxt = 30;
+         function frame() {
+            for (item of slides) {
+               if (positionImg == 0) {
+               clearInterval(animationImg);
+            } else {
+               positionImg--;
+               slides[index].style.transform = `translate(${positionImg}px)`;
+            }
+         }
+         }
+            function frameTxt() {
+               if (positionTxt == 0) {
+               clearInterval(animationTxt);
+            } else {
+               positionTxt--;
+               coverItem.style.transform = `translate(${positionTxt}px)`;
+            }
+      }
+   })
 })
+//актуальный индекс
+//предыдущий
+//сравнить
+//подвинуть
+
+function moveDown() {
+   let coordY = 150;
+   let id = setInterval(frame, 5);
+   function frame() {
+      if (coordY == 0) {
+         console.log('ckckc');
+         clearInterval(id);
+      } else {
+         coordY--;
+         slider.style.top = coordY + 'px';
+      }
+   }
+}
+/* 
+dots.forEach(function (dot, index) {
+   dot.addEventListener('click', function () { 
+      let id = setInterval(frame, 1);
+      let pos = 450;
+      
+      for (item of slides){
+         slides[index].classList.add('img');
+      }
+
+
+      let slide = document.querySelector('.slider__item');
+
+
+      function frame() {
+         if (pos == 0) {
+            clearInterval(id);
+         } else {
+            pos--;
+            slide.style.transform = `translate(${pos}px)` 
+         }
+      }
+})
+}) */

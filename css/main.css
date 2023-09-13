@@ -33,30 +33,37 @@
    transition: all ease 1s;
 }
 .slider__item {
-max-width: 100%;
-   height: auto;
+   width: 60vw;
+      height: 40vh;
+      margin-top: 10px;
+      border: 1px solid #000;
+      overflow: hidden;
+      text-align: center;
 }
 .slider__img-one{
-   width: 30em;
-   height: max-content;
-   background-size: contain;
+   width: 100%;
+      height: 100%;
+      object-fit: contain;
 }
 .slider__img-two {
-   width: 30em;
-      height: max-content;
+   width: 100%;
+      height: 100%;
+      object-fit: contain;
 }
 .slider__img-three {
-   width: 30em;
-   height: max-content;
+   width: 100%;
+      height: 100%;
+      object-fit: contain;
 }
 .slider__img-four {
-   width: 30em;
-   height: max-content;
+   width: 100%;
+      height: 100%;
+      object-fit: contain;
 }
 .slider__dots {
    display: flex;
    cursor: pointer;
-   height: 26px;
+   height: 1em;
    margin: auto;
 }
 
