@@ -95,62 +95,59 @@ dots.forEach(function (dot, index) {
    dot.addEventListener('click', function () {
       if (index == currentIndex) { }
       else if (index > currentIndex) {
-      slide.style.backgroundImage = `url(${img[currentIndex]})`;
+         slide.style.backgroundImage = `url(${img[currentIndex]})`;
          let animationImg = setInterval(frame, 1);
-         let animationTxt = setInterval(frameTxt,  1);
+         let animationTxt = setInterval(frameTxt, 1);
          let positionImg = 40;
          let positionTxt = 40;
-
          function frame() {
             for (item of slides) {
                if (positionImg == 0) {
-               clearInterval(animationImg);
+                  clearInterval(animationImg);
                } else {
-               positionImg--;
-               sliderImg.style.transform = `translate(${positionImg}%)`;
+                  positionImg--;
+                  sliderImg.style.transform = `translate(${positionImg}%)`;
                }
             }
          }
          function frameTxt() {
             if (positionTxt == 0) {
-            clearInterval(animationTxt);
+               clearInterval(animationTxt);
             } else {
-            positionTxt--;
-            coverItem.style.transform = `translate(${positionTxt}%)`;
+               positionTxt--;
+               coverItem.style.transform = `translate(${positionTxt}%)`;
             }
          }
-         } else if (index < currentIndex) {
-            slide.style.backgroundImage = `url(${img[currentIndex]})`;
-            let animationImg = setInterval(frame, 1);
-            let animationTxt = setInterval(frameTxt, 1);
-            let positionImg = -40;
-            let positionTxt = -40;
+      } else if (index < currentIndex) {
+         slide.style.backgroundImage = `url(${img[currentIndex]})`;
+         let animationImg = setInterval(frame, 1);
+         let animationTxt = setInterval(frameTxt, 1);
+         let positionImg = -40;
+         let positionTxt = -40;
 
-            function frame() {
-               for (item of slides) {
-                  if (positionImg == 0) {
+         function frame() {
+            for (item of slides) {
+               if (positionImg == 0) {
                   clearInterval(animationImg);
-                  } else {
+               } else {
                   positionImg++;
                   sliderImg.style.transform = `translate(${positionImg}%)`;
-                  }
                }
             }
-            function frameTxt() {
-               if (positionTxt == 0) {
+         }
+         function frameTxt() {
+            if (positionTxt == 0) {
                clearInterval(animationTxt);
-               } else {
+            } else {
                positionTxt++;
                coverItem.style.transform = `translate(${positionTxt}%)`;
-               }
             }
-         }      
-      currentIndex = index;   
+         }
+      }
+      currentIndex = index;
       prepareCurrentSlide(currentIndex);
 
-} 
-
-   )
-}) 
+   })
+}); 
 
 

@@ -1,7 +1,6 @@
 * {
    background: #25282a;
 }
-
 .container {
    max-width: 90em;
    margin: 0 auto;
@@ -25,7 +24,6 @@
    margin: auto;
    margin-top: 1em;
 }
-
 .slider__item {
    height: 84vh;
    margin-top: 7.5pt;
